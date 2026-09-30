@@ -1,0 +1,12 @@
+{
+  "name": "site-monitor",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "XingSeq 子应用：基于 Uptime Kuma 的站点可用性监控（Docker 容器管家 + 告警邮件桥接），带 Web GUI",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/cli.mjs gateway",
+    "build:web": "cd web && npm install && npm run build"
+  }
+}

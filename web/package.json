@@ -1,0 +1,20 @@
+{
+  "name": "site-monitor-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "site-monitor 前端：Kuma 容器状态、通知配置与告警历史 GUI",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.10"
+  }
+}

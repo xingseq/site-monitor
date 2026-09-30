@@ -1,0 +1,34 @@
+{
+  "name": "site-monitor",
+  "displayName": "站点监控",
+  "description": "基于 Uptime Kuma 的网站可用性监控：HTTP/TCP/DNS/SSL 证书探测，异常邮件告警",
+  "version": "0.1.0",
+  "autoStart": true,
+  "ui": {
+    "enabled": true,
+    "port": 3005,
+    "portEnv": "SITE_MONITOR_PORT",
+    "healthPath": "/api/health",
+    "routes": ["/"]
+  },
+  "api": {
+    "enabled": true,
+    "port": 3005,
+    "portEnv": "SITE_MONITOR_PORT",
+    "healthPath": "/api/health",
+    "startCommand": "exec node src/cli.mjs gateway"
+  },
+  "cli": {
+    "enabled": true,
+    "bin": "src/cli.mjs",
+    "style": "subcommand",
+    "commands": {
+      "gateway": { "description": "启动站点监控网关（含 Kuma 容器管理）", "args": [] },
+      "status": { "description": "查看 Docker/Kuma 容器状态", "args": [] },
+      "logs": { "description": "查看网关与告警日志", "args": ["--tail"] },
+      "ensure": { "description": "确保 Docker 就绪并拉起 Kuma 容器（不启动网关）", "args": [] },
+      "stop-kuma": { "description": "停止 Kuma 容器（监控暂停，数据保留）", "args": [] },
+      "restart-kuma": { "description": "重启 Kuma 容器（数据保留）", "args": [] }
+    }
+  }
+}
